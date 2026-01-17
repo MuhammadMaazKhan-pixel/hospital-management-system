@@ -55,8 +55,10 @@ The application uses the following tables:
 
 ### ER Diagram
 
-![Hospital ER Diagram](hospitalEr.drawio.png)
-
+Er Digram for this Dtabase is on 
+```file
+hospitalER.drawio.png
+```
 Primary and foreign key constraints are used to enforce relationships.
 
 ## SQL Analytics Queries
@@ -161,4 +163,5 @@ NATURAL JOIN patients p
 JOIN treatments t on t.treatment_id = b.treatment_id
  WHERE patient_id = 'P001';
 ```
+
 
