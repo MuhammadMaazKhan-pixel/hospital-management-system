@@ -47,11 +47,15 @@ java -cp "bin;lib/sqlite-jdbc-3.51.1.0.jar" Main
 ##  Database Schema
 
 The application uses the following tables:
-- patients
-- doctors
-- appointments
-- treatments
-- billing
+- patients (patient_id [pk], first_name, last_name, gender, date_of_birth, contact_number, address, registration_date, insurance_provider, insurance_number, email)
+- doctors (doctor_id [pk], first_name, last_name, specialization, phone_number, years_experience, hospital_branch, email)
+- appointments (appointment_id [pk], patient_id [fk], doctor_id [fk], appointment_date, appointment_time, reason_for_visit, status)
+- treatments (treatment_id [pk], appointment_id [fk], treatment_type, description, cost, treatment_date)
+- billing (bill_id [pk], patient_id [fk], treatment_id [fk], bill_date, amount, payment_method, payment_status)
+
+### ER Diagram
+
+![Hospital ER Diagram](hospitalEr.drawio.png)
 
 Primary and foreign key constraints are used to enforce relationships.
 
@@ -157,3 +161,4 @@ NATURAL JOIN patients p
 JOIN treatments t on t.treatment_id = b.treatment_id
  WHERE patient_id = 'P001';
 ```
+
